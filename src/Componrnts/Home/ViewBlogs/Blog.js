@@ -13,13 +13,13 @@ const Blog = ({ blog }) => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const downVotePost = id => {
-        if (blog.downVote.find(ele => ele === loggedInUser.email)) {
-            alert("already voted");
-        }
 
-        else {
-            console.log(loggedInUser.email);
-            console.log(id);
+        // if (blog.downVote.find(ele => ele === loggedInUser.email)) {
+        //     alert("already voted");
+        // }
+
+        // else {
+        // }
             const newData = {
                 data: loggedInUser.email
             }
@@ -35,18 +35,19 @@ const Blog = ({ blog }) => {
                 .catch(err => {
                     console.log(err);
                 })
-        }
-
+        
     }
 
     const upVotePost = (id) => {
-        if (blog.upVote.find(ele => ele === loggedInUser.email)) {
-            alert("already voted");
-        }
+       
+        console.log(loggedInUser.email);
+        console.log(id);
+        // if (blog.upVote.find(ele => ele === loggedInUser.email)) {
+        //     alert("already voted");
+        // }
 
-        else {
-            console.log(loggedInUser.email);
-            console.log(id);
+        // else {
+        // }
             const newData = {
                 data: loggedInUser.email
             }
@@ -63,12 +64,10 @@ const Blog = ({ blog }) => {
                 .catch(err => {
                     console.log(err);
                 })
-        }
-
+       
     }
 
     const onSubmit = (data) => {
-
         const id = data.id;
         const newComment = {
             comment: data.comment,
@@ -90,9 +89,6 @@ const Blog = ({ blog }) => {
 
             })
     }
-
-
-
     const clear = () => {
         document.getElementById("comments").value = "";
 
