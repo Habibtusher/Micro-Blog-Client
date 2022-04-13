@@ -7,7 +7,7 @@ const ViewBlogs = () => {
     const [blogs, setBlogs] = useState([]);
    
     useEffect(() => {
-        fetch('http://localhost:5000/allBlogs')
+        fetch('https://intense-bastion-95453.herokuapp.com/allBlogs')
             .then(res => res.json())
             .then(data => setBlogs(data))
 

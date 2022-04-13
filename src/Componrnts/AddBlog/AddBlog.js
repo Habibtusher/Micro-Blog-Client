@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { UserContext } from './../../App';
 
+
 const AddBlog = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     const { register, handleSubmit } = useForm();
@@ -20,7 +21,7 @@ const AddBlog = () => {
             email: loggedInUser.email,
             profilePic:loggedInUser.photoURL,
         };
-        const url = "http://localhost:5000/addBlog"
+        const url = "https://intense-bastion-95453.herokuapp.com/addBlog"
 
         fetch(url, {
             method: 'POST',

@@ -6,6 +6,7 @@ import { AiFillMessage } from "react-icons/ai"
 import { useContext, useEffect } from 'react';
 import { UserContext } from './../../../App';
 import { useState } from 'react';
+import { format } from "date-fns";
 import Comment from '../Comment/Comment';
 const Blog = ({ blog }) => {
 
@@ -23,7 +24,7 @@ const Blog = ({ blog }) => {
             const newData = {
                 data: loggedInUser.email
             }
-            fetch(`http://localhost:5000/addDownVote/${id}`, {
+            fetch(`https://intense-bastion-95453.herokuapp.com/addDownVote/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
@@ -51,7 +52,7 @@ const Blog = ({ blog }) => {
             const newData = {
                 data: loggedInUser.email
             }
-            fetch(`http://localhost:5000/addLikes/${id}`, {
+            fetch(`https://intense-bastion-95453.herokuapp.com/addLikes/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
@@ -74,7 +75,7 @@ const Blog = ({ blog }) => {
             profilePic: loggedInUser.photoURL,
             name: loggedInUser.name,
         }
-        fetch(`http://localhost:5000/addComments/${id}`, {
+        fetch(`https://intense-bastion-95453.herokuapp.com/addComments/${id}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
@@ -101,7 +102,8 @@ const Blog = ({ blog }) => {
                 </div>
                 <div className="nameDate">
                     <h5>{blog.name}</h5>
-                    <span>{blog.date}</span>
+                    <span>{format(new Date(blog.date), 'do MMMM Y')}</span>
+                   
                 </div>
 
             </div>
